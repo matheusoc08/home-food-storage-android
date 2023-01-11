@@ -1,6 +1,8 @@
 package com.home_food_storage;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,12 +11,15 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText editTextSearchItem;
-    TextView textViewCleanList, textViewEmptyList;
-    ListView listViewListItems;
+    TextView textViewCleanList, textViewMessageEmptyList;
+    RecyclerView recyclerViewItemList;
     Button buttonNewItem;
+    ArrayList<DtoItem> arrayItemList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +28,15 @@ public class MainActivity extends AppCompatActivity {
 
         editTextSearchItem = findViewById(R.id.editTextSearchItem);
         textViewCleanList = findViewById(R.id.textViewCleanList);
-        textViewEmptyList = findViewById(R.id.textViewEmptyList);
-        listViewListItems = findViewById(R.id.listViewListItems);
+        textViewMessageEmptyList = findViewById(R.id.textViewMessageEmptyList);
+        recyclerViewItemList = findViewById(R.id.recyclerViewItemList);
         buttonNewItem = findViewById(R.id.buttonNewItem);
+
+        ItemListAdapter adapter = new ItemListAdapter();
+        recyclerViewItemList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        recyclerViewItemList.setAdapter(adapter);
+
+        checkEmptyList();
 
         buttonNewItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,5 +44,14 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void checkEmptyList(){
+        if(arrayItemList.isEmpty()){
+            textViewMessageEmptyList.setVisibility(View.VISIBLE);
+        }
+        else{
+            textViewMessageEmptyList.setVisibility(View.INVISIBLE);
+        }
     }
 }
