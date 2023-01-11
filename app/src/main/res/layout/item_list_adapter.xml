@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewItemName"
+                android:text="item_name"
+                android:textSize="22sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewItemPrice"
+                android:text="Price: \nR$ 00,00"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/textViewItemQuantity"
+                android:text="Quantidade: \n10"
+                android:textSize="18sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkboxItemBought"
+        android:layout_marginTop="10dp"
+        />
+</LinearLayout>
