@@ -3,6 +3,7 @@ Criar um controle de estoque dos alimentos e outros produtos da casa.
 Também criar uma lista de compras que recebe os produtos e quantidade ou grama.
 
 API: https://github.com/matheusoc08/home-food-storage-api
+Design v1: https://www.figma.com/file/Ny4oasuNqIuSkaT0Lz0bIx/Untitled?node-id=1%3A26&t=FQQHzOQLCCTwvMt5-1
 
 # Estoque
 Deve conter:
