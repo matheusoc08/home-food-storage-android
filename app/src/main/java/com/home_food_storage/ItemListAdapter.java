@@ -9,7 +9,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemListHolder> {
+
+    ArrayList<DtoItem> arrayListItem = new ArrayList<>();
+    public ItemListAdapter(ArrayList<DtoItem> arrayListItem){
+        this.arrayListItem = arrayListItem;
+    }
 
     @NonNull
     @Override
@@ -20,15 +27,15 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
 
     @Override
     public void onBindViewHolder(@NonNull ItemListHolder holder, int position) {
-        holder.textViewItemName.setText("item_list");
-        holder.textViewItemPrice.setText("100,00");
-        holder.textViewItemQuantity.setText("100");
-
+        holder.textViewItemName.setText(arrayListItem.get(position).getItemName());
+        holder.textViewItemPrice.setText(arrayListItem.get(position).getItemPrice()+"");
+        holder.textViewItemQuantity.setText(arrayListItem.get(position).itemQuantity+"");
+        holder.checkBoxItemBought.setChecked(arrayListItem.get(position).itemBought);
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return arrayListItem.size();
     }
 
     public class ItemListHolder extends RecyclerView.ViewHolder{
