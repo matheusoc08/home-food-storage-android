@@ -42,12 +42,12 @@ Deve conter:
 
 ### FRONT
 - Tela inicial
-- [ ] Exibir todos os itens na página inicial
+- [x] Exibir todos os itens na página inicial
 - [x] Conter barra de pesquisa
 - [ ] A barra de pesquisa deve retornar os itens na tela inicial conforme o campo é preenchido.
-- [ ] Checkbox para marcar ou desmarcar a compra do item
-- [ ] Botão para incluir os itens comprados no estoque
-- [] Botão para limpar a lista
+- [x] Checkbox para marcar ou desmarcar a compra do item
+- [x] Botão para incluir os itens comprados no estoque
+- [x] Botão para limpar a lista
 
 - Tela para inclusao/Tela para alteração
 - [x] Exibir campos Nome, Descricao, Peso, Quantidade, Preco e Comprado.
