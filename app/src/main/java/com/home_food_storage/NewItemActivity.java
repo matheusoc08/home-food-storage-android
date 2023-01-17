@@ -2,15 +2,19 @@ package com.home_food_storage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class NewItemActivity extends AppCompatActivity {
 
     EditText editTextItemName, editTextItemDescription, editTextItemWeight, editTextItemQuantity, editTextItemPrice;
-    Button buttonUpdateItem;
+    Button buttonAddItem, buttonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,12 +26,48 @@ public class NewItemActivity extends AppCompatActivity {
         editTextItemWeight = findViewById(R.id.editTextItemWeight);
         editTextItemQuantity = findViewById(R.id.editTextItemQuantity);
         editTextItemPrice = findViewById(R.id.editTextItemPrice);
-        buttonUpdateItem = findViewById(R.id.buttonUpdateItem);
+        buttonAddItem = findViewById(R.id.buttonAddItem);
+        buttonBack = findViewById(R.id.buttonBack);
 
-        buttonUpdateItem.setOnClickListener(new View.OnClickListener() {
+        buttonBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NewItemActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                DaoItemList daoItemList = new DaoItemList(NewItemActivity.this);
+
+                DtoItem dtoItem = new DtoItem(
+                        editTextItemName.getText().toString(),
+                        editTextItemDescription.getText().toString(),
+                        Double.parseDouble(editTextItemWeight.getText().toString()),
+                        Double.parseDouble(editTextItemPrice.getText().toString()),
+                        Integer.parseInt(editTextItemQuantity.getText().toString()),
+                        false
+                );
+
+                try {
+                    long affectedLines = daoItemList.insertItem(dtoItem);
+
+                    if(affectedLines != 0){
+                        Toast.makeText(NewItemActivity.this, "Item incluído.", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(NewItemActivity.this, "Erro! Tente novamente.", Toast.LENGTH_SHORT).show();
+                    }
+
+                    Intent intent = new Intent(NewItemActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+                catch (Exception e){
+                    Toast.makeText(NewItemActivity.this, "Falha inesperada: " + e.toString(), Toast.LENGTH_LONG).show();
+                }
             }
         });
     }
