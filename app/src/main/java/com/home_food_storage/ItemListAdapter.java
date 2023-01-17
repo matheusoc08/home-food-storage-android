@@ -29,8 +29,8 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ItemLi
     public void onBindViewHolder(@NonNull ItemListHolder holder, int position) {
         holder.textViewItemName.setText(arrayListItem.get(position).getItemName());
         holder.textViewItemPrice.setText(arrayListItem.get(position).getItemPrice()+"");
-        holder.textViewItemQuantity.setText(arrayListItem.get(position).itemQuantity+"");
-        holder.checkBoxItemBought.setChecked(arrayListItem.get(position).itemBought);
+        holder.textViewItemQuantity.setText(arrayListItem.get(position).getItemQuantity()+"");
+        holder.checkBoxItemBought.setChecked(arrayListItem.get(position).isItemBought());
     }
 
     @Override
