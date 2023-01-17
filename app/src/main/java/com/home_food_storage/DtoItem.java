@@ -4,8 +4,10 @@ public class DtoItem {
 
     private String itemName, itemDescription;
     private double itemWeight, itemPrice;
-    int itemQuantity;
-    boolean itemBought;
+    private int itemQuantity;
+    private boolean itemBought;
+
+    public DtoItem() { }
 
     public DtoItem(String itemName, String itemDescription, double itemWeight, double itemPrice, int itemQuantity, boolean itemBought) {
         this.itemName = itemName;
