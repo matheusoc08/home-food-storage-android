@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerViewItemList;
     Button buttonNewItem, buttonSendStorage, buttonCleanList;
     ArrayList<DtoItem> arrayItemList = new ArrayList<>();
+    DaoItemList daoItemList = new DaoItemList(MainActivity.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +34,11 @@ public class MainActivity extends AppCompatActivity {
         buttonSendStorage = findViewById(R.id.buttonSendStorage);
         buttonCleanList = findViewById(R.id.buttonCleanList);
 
-        carregaLista();
-
-        atualizarLista();
-
         buttonNewItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                carregaLista();
-                atualizarLista();
+                Intent intent = new Intent(MainActivity.this, NewItemActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -49,12 +46,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 arrayItemList.clear();
-                atualizarLista();
+                updateList();
             }
         });
+
+        updateList();
     }
 
-    private void atualizarLista() {
+    public void updateList() {
+        arrayItemList = daoItemList.listItems();
+
         ItemListAdapter adapter = new ItemListAdapter(arrayItemList);
         recyclerViewItemList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         recyclerViewItemList.setAdapter(adapter);
@@ -70,14 +71,5 @@ public class MainActivity extends AppCompatActivity {
             textViewMessageEmptyList.setVisibility(View.INVISIBLE);
             buttonSendStorage.setVisibility(View.VISIBLE);
         }
-    }
-
-    private void carregaLista(){
-        arrayItemList.add(new DtoItem("Arroz", "Arroz", 5, 13.00, 2, true));
-        arrayItemList.add(new DtoItem("Feijao", "Feijao", 1, 5.00, 5, true));
-        arrayItemList.add(new DtoItem("Carne", "Carne", 1.5, 23.00, 1, true));
-        arrayItemList.add(new DtoItem("Miojo", "Sabor frango", 0, 4.00, 2, false));
-        arrayItemList.add(new DtoItem("Macarrão", "Espageti", 0.5, 3.00, 2, true));
-        arrayItemList.add(new DtoItem("Caixa de chocolate", null, 0, 13.00, 2, false));
     }
 }
