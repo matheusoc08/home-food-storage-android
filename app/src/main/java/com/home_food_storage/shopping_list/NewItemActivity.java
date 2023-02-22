@@ -1,5 +1,6 @@
 package com.home_food_storage;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -61,9 +62,6 @@ public class NewItemActivity extends AppCompatActivity {
                     else{
                         Toast.makeText(NewItemActivity.this, "Erro! Tente novamente.", Toast.LENGTH_SHORT).show();
                     }
-
-                    Intent intent = new Intent(NewItemActivity.this, MainActivity.class);
-                    startActivity(intent);
                 }
                 catch (Exception e){
                     Toast.makeText(NewItemActivity.this, "Falha inesperada: " + e.toString(), Toast.LENGTH_LONG).show();

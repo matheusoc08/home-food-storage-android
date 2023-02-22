@@ -1,4 +1,4 @@
-package com.home_food_storage;
+package com.home_food_storage.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+
+import com.home_food_storage.dto.DtoItem;
 
 import java.util.ArrayList;
 
@@ -76,5 +78,7 @@ public class DaoItemList extends SQLiteOpenHelper {
         return fullItemsList;
     }
 
-
+    public int clearList(){
+        return getWritableDatabase().delete(TABLE, null, null);
+    }
 }
