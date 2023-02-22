@@ -14,10 +14,10 @@
         android:theme="@style/Theme.Homefoodstorage"
         tools:targetApi="31">
         <activity
-            android:name=".EditItemActivity"
+            android:name=".shopping_list.EditItemActivity"
             android:exported="false" />
         <activity
-            android:name=".NewItemActivity"
+            android:name=".shopping_list.NewItemActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

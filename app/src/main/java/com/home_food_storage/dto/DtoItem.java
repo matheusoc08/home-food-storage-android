@@ -1,4 +1,4 @@
-package com.home_food_storage;
+package com.home_food_storage.dto;
 
 public class DtoItem {
 

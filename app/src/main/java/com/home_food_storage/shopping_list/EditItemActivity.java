@@ -1,4 +1,4 @@
-package com.home_food_storage;
+package com.home_food_storage.shopping_list;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.home_food_storage.R;
 
 public class EditItemActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.home_food_storage;
+package com.home_food_storage.shopping_list;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.home_food_storage.R;
+import com.home_food_storage.dto.DtoItem;
 
 import java.util.ArrayList;
 

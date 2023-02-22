@@ -1,6 +1,5 @@
-package com.home_food_storage;
+package com.home_food_storage.shopping_list;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,7 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.home_food_storage.MainActivity;
+import com.home_food_storage.R;
+import com.home_food_storage.dao.DaoItemList;
+import com.home_food_storage.dto.DtoItem;
 
 public class NewItemActivity extends AppCompatActivity {
 
