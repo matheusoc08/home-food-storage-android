@@ -10,6 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.home_food_storage.dao.DaoItemList;
+import com.home_food_storage.dto.DtoItem;
+import com.home_food_storage.shopping_list.ItemListAdapter;
+import com.home_food_storage.shopping_list.NewItemActivity;
 
 import java.util.ArrayList;
 
@@ -45,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         buttonCleanList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                arrayItemList.clear();
+                daoItemList.clearList();
                 updateList();
             }
         });
@@ -66,10 +72,12 @@ public class MainActivity extends AppCompatActivity {
         if(arrayItemList.isEmpty()){
             textViewMessageEmptyList.setVisibility(View.VISIBLE);
             buttonSendStorage.setVisibility(View.INVISIBLE);
+            buttonCleanList.setVisibility(View.INVISIBLE);
         }
         else{
             textViewMessageEmptyList.setVisibility(View.INVISIBLE);
             buttonSendStorage.setVisibility(View.VISIBLE);
+            buttonCleanList.setVisibility(View.VISIBLE);
         }
     }
 }
