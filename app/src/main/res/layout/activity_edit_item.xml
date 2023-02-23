@@ -66,5 +66,12 @@
         android:id="@+id/buttonUpdateItem"
         />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Remover item"
+        android:id="@+id/buttonDeleteItem"
+        android:backgroundTint="#F51720"/>
+
 
 </LinearLayout>
