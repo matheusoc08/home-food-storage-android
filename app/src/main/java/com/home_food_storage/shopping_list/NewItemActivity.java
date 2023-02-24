@@ -17,7 +17,7 @@ import com.home_food_storage.dto.DtoItem;
 public class NewItemActivity extends AppCompatActivity {
 
     EditText editTextItemName, editTextItemDescription, editTextItemWeight, editTextItemQuantity, editTextItemPrice;
-    Button buttonAddItem, buttonBack;
+    Button buttonAddItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +30,6 @@ public class NewItemActivity extends AppCompatActivity {
         editTextItemQuantity = findViewById(R.id.editTextItemQuantity);
         editTextItemPrice = findViewById(R.id.editTextItemPrice);
         buttonAddItem = findViewById(R.id.buttonAddItem);
-        buttonBack = findViewById(R.id.buttonBack);
-
-        buttonBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(NewItemActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
         buttonAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +51,12 @@ public class NewItemActivity extends AppCompatActivity {
 
                     if(affectedLines != 0){
                         Toast.makeText(NewItemActivity.this, "Item incluído.", Toast.LENGTH_SHORT).show();
+
+                        editTextItemName.setText("");
+                        editTextItemDescription.setText("");
+                        editTextItemWeight.setText("");
+                        editTextItemQuantity.setText("");
+                        editTextItemPrice.setText("");
                     }
                     else{
                         Toast.makeText(NewItemActivity.this, "Erro! Tente novamente.", Toast.LENGTH_SHORT).show();
