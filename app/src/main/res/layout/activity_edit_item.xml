@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".shopping_list.EditItemActivity">
+    tools:context=".shopping_list.EditItemActivity"
+    android:layout_margin="5dp">
 
     <TextView
         android:layout_width="match_parent"

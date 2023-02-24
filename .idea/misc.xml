@@ -3,9 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/workspace/home-food-storage/android/app/src/main/res/layout/activity_edit_item.xml" value="0.2" />
-        <entry key="..\:/workspace/home-food-storage/android/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/workspace/home-food-storage/android/app/src/main/res/layout/activity_new_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/workspace/home-food-storage/android/app/src/main/res/layout/activity_edit_item.xml" value="0.264" />
+        <entry key="..\:/workspace/home-food-storage/android/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/workspace/home-food-storage/android/app/src/main/res/layout/activity_new_item.xml" value="0.264" />
         <entry key="..\:/workspace/home-food-storage/android/app/src/main/res/layout/item_list_adapter.xml" value="0.264" />
       </map>
     </option>
