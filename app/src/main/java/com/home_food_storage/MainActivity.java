@@ -2,6 +2,7 @@ package com.home_food_storage;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -83,6 +84,13 @@ public class MainActivity extends AppCompatActivity {
                     public void onItemClick(View view, int position) {
                         Toast.makeText(MainActivity.this, "Clicou!", Toast.LENGTH_SHORT).show();
 
+
+                    }
+        
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        Toast.makeText(MainActivity.this, "Segurooou", Toast.LENGTH_SHORT).show();
+
                         dtoItem = arrayItemList.get(position);
 
                         Intent intent = new Intent(MainActivity.this, EditItemActivity.class);
@@ -94,11 +102,6 @@ public class MainActivity extends AppCompatActivity {
                         intent.putExtra("quantity", dtoItem.getItemQuantity()+"");
                         intent.putExtra("bought", dtoItem.isItemBought());
                         startActivity(intent);
-                    }
-        
-                    @Override
-                    public void onLongItemClick(View view, int position) {
-                        Toast.makeText(MainActivity.this, "Segurooou", Toast.LENGTH_SHORT).show();
         
                     }
         
@@ -117,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
         ItemListAdapter adapter = new ItemListAdapter(arrayItemList);
         recyclerViewItemList.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         recyclerViewItemList.setAdapter(adapter);
+        recyclerViewItemList.addItemDecoration(
+                new DividerItemDecoration(MainActivity.this, LinearLayoutManager.VERTICAL)
+        );
         checkEmptyList();
     }
 
